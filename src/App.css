@@ -1,3 +1,7 @@
+html * {
+  box-sizing: border-box;
+}
+
 .sprintHero {
   font-family: 'Open Sans', sans-serif;
 }
@@ -41,10 +45,6 @@
   margin: 5px;
   min-height: 50px;
   width: calc(100%/7 - 10px - 2px);
-}
-
-.day--view-month {
-
 }
 
 .day--weekend {  background: #efefef;  }

@@ -26,19 +26,21 @@ const weeksOfMonth = (month) => {
  *  @param {string|Date|moment} month - moment any date in the target month
  */
 const monthEdges = (month) => {
-  const start = moment(month).startOf('month').startOf('week');
-  const end = moment(month).endOf('month').endOf('week');
+  const start = moment(month)
+    .startOf('month')
+    .startOf('week');
 
-  const result = [];
+  const end = moment(month)
+    .endOf('month')
+    .endOf('week');
 
-  while (start.month() !== month.month()) {
-    result.push(start.clone());
-    start.add(1, 'day');
-  }
+  let i = 0;
+  let count = end.diff(start, 'days');
 
-  while (end.month() !== month.month()) {
-    result.push(end.clone());
-    end.subtract(1, 'day');
+  let result = [];
+
+  for (i; i <= count; i++) {
+    result.push(start.clone().add(i ,'day'));
   }
 
   return result;

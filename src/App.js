@@ -2,6 +2,7 @@ import React from 'react';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 import moment from 'moment';
+
 import './App.css';
 
 import {Month} from './components/Month';
@@ -19,7 +20,7 @@ const App = _cc({
   render() {
     return (
       <div className="sprintHero">
-        <Month month={moment().month(5)} />
+        <Month month={moment().month(5)} view="weeks" />
       </div>
     );
   }

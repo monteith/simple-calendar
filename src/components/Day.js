@@ -9,13 +9,15 @@ import {isWeekday} from '../dateUtils';
 /**
  * Day block in calendar
  * @param {moment|object} date
+ * @param {string} view
  * @returns {Component}
  * @constructor
  */
-const Day = ({date}) => {
+const Day = ({date, view = 'day'}) => {
   let dayClasses = [
     'day',
-    {'day--weekend' : !isWeekday(date)}
+    {'day--weekend' : !isWeekday(date)},
+    `day--view-${view}`
   ];
 
   return (
@@ -29,7 +31,8 @@ const Day = ({date}) => {
 
 Day.displayName = 'Calendar.Day';
 Day.propTypes = {
-  date: PropTypes.object.isRequired
+  date: PropTypes.object.isRequired,
+  view: PropTypes.string
 };
 
 export {Day}

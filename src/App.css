@@ -13,10 +13,18 @@
   color: dimgray;
   font-size: 14px;
   margin: 5px 5px 0 5px;
-  min-width: 50px;
   padding: 5px 5px 0 5px;
   text-align: center;
   text-transform: uppercase;
+  width: calc(100%/7 - 10px - 2px);
+}
+
+.month__days {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .week__days {
@@ -31,14 +39,20 @@
   color: darkgray;
   font-size: 12px;
   margin: 5px;
-  min-width: 50px;
   min-height: 50px;
-  padding: 5px;
-  text-align: right;
+  width: calc(100%/7 - 10px - 2px);
 }
 
-.day--weekend {
-  background: #efefef;
+.day--view-month {
+
+}
+
+.day--weekend {  background: #efefef;  }
+
+.day__date {
+  display: inline-block;
+  float: right;
+  padding: 5px 5px 0;
 }
 
 .day__date--today {

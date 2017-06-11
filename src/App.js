@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import moment from 'moment';
 import './App.css';
 
-import {Month} from './Calendar';
+import {Month} from './components/Month';
 
 const _cc = createReactClass;
 

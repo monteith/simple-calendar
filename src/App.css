@@ -1,0 +1,48 @@
+.sprintHero {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.month__labels {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  padding: 10px 0 0;
+}
+
+.month__label {
+  color: dimgray;
+  font-size: 14px;
+  margin: 5px 5px 0 5px;
+  min-width: 50px;
+  padding: 5px 5px 0 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.week__days {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.day {
+  border: 1px solid #efefef;
+  color: darkgray;
+  font-size: 12px;
+  margin: 5px;
+  min-width: 50px;
+  min-height: 50px;
+  padding: 5px;
+  text-align: right;
+}
+
+.day--weekend {
+  background: #efefef;
+}
+
+.day__date--today {
+  color: teal;
+  font-weight: bold;
+}
+

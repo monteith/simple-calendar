@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames/bind';
 
 import {Day} from './Day';
 
@@ -11,7 +12,7 @@ import {daysOfWeek} from '../dateUtils';
  * @returns {Component}
  * @constructor
  */
-const Week = ({week}) => {
+const Week = ({week, view}) => {
   let days =
     daysOfWeek(week)
       .map( (n, i) => {
@@ -24,7 +25,7 @@ const Week = ({week}) => {
       });
 
   return (
-    <div className="week">
+    <div className={cx('week', `week--view-${view}`)}>
       <div className="week__days">
         {days}
       </div>

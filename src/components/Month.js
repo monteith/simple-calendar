@@ -29,7 +29,7 @@ const Month = ({month, view = 'monthly'}) => {
             .clone()
             .startOf('month')
             .add(i, 'weeks');
-        return <Week key={week.date()} week={week} />
+        return <Week key={week.date()} week={week} view={view} />
       });
 
   return (

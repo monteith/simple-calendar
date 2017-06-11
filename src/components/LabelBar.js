@@ -8,7 +8,7 @@ const getDayLabels = () =>
     .map( (day) =>
       <div key={`label-${day.format('ddd')}`}
            className="labels__label labels__label--day">
-        {day.format('ddd')}
+        <span>{day.format('ddd')}</span>
       </div> );
 
 const LabelBar = ({view, weeks}) => {

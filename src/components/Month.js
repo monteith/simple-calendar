@@ -1,19 +1,13 @@
 import React from 'react';
-import moment from 'moment';
 import PropTypes from 'prop-types';
+import cx from 'classnames/bind';
 
+import {LabelBar} from './LabelBar';
 import {Week} from './Week';
 import {Day} from './Day';
 
-import {weeksOfMonth, monthEdges, daysOfWeek} from '../dateUtils';
+import {weeksOfMonth, monthEdges} from '../dateUtils';
 
-const getDayLabels = () =>
-  daysOfWeek(moment())
-    .map( (day) =>
-      <div key={`label-${day.format('ddd')}`}
-           className="month__label month__label--day">
-        {day.format('ddd')}
-      </div> );
 
 /**
  * Month block in calendar
@@ -22,9 +16,7 @@ const getDayLabels = () =>
  * @returns {Component}
  * @constructor
  */
-const Month = ({month, view = 'days'}) => {
-  let labels = getDayLabels();
-
+const Month = ({month, view = 'monthly'}) => {
   let days =
     monthEdges(month)
       .map((day) => <Day key={`day-${day.format('DDD')}`} date={day} view={view} />);
@@ -41,16 +33,14 @@ const Month = ({month, view = 'days'}) => {
       });
 
   return (
-    <div className="month">
-      <div className="month__labels">
-        {labels}
-      </div>
-      {view === 'days' && (
+    <div className={cx('month', `month--view-${view}`)}>
+      <LabelBar view={view} weeks={weeks} />
+      {view === 'monthly' && (
         <div className="month__days">
           {days}
         </div>
       )}
-      {view === 'weeks' && (
+      {view === 'weekly' && (
         <div className="month__weeks">
           {weeks}
         </div>

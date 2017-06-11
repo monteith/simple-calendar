@@ -1,27 +1,54 @@
-html * {
-  box-sizing: border-box;
-}
-
 .sprintHero {
   font-family: 'Open Sans', sans-serif;
 }
 
-.month__labels {
+.calendar {
+  padding: 30px 15px;
+}
+
+.viewbar {  float: right;  }
+
+.labels,
+.month { clear: both; }
+
+.labels--view-monthly {
   display: flex;
   flex: 1 0 auto;
   justify-content: center;
   padding: 10px 0 0;
 }
 
-.month__label {
+.labels__group {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.labels__label {
   color: dimgray;
   font-size: 14px;
   margin: 5px 5px 0 5px;
   padding: 5px 5px 0 5px;
   text-align: center;
   text-transform: uppercase;
-  width: calc(100%/7 - 10px - 2px);
+  width: calc(100%/7);
 }
+
+.labels__label--day {
+  min-height: 50px;
+  margin: 5px;
+  width: 100%;
+}
+
+.labels__label:first-child { margin-left: 0; }
+.labels__label:last-child { margin-right: 0; }
+
+.month { display: flex; }
+.month--view-monthly { flex-direction: column; }
+
+.month__weeks { flex-grow: 1; }
 
 .month__days {
   display: flex;
@@ -31,23 +58,43 @@ html * {
   justify-content: space-around;
 }
 
+.week {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
 .week__days {
   display: flex;
   flex: 1 0 auto;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
 }
 
 .day {
   border: 1px solid #efefef;
   color: darkgray;
+  cursor: pointer;
   font-size: 12px;
   margin: 5px;
   min-height: 50px;
+  transition: box-shadow 200ms ease;
   width: calc(100%/7 - 10px - 2px);
 }
 
+.day:hover {
+  box-shadow: 0px 0px 5px rgba(200,200,200,.5);
+  transition: box-shadow 200ms ease;
+}
+
 .day--weekend {  background: #efefef;  }
+
+.day--view-monthly:first-child { margin-left: 0; }
+.day--view-monthly:nth-child(7n + 7) { margin-right: 0; }
+.day--view-monthly:nth-child(7n + 8) { margin-left: 0; }
+
+.day--view-weekly {
+  width: 100%;
+}
 
 .day__date {
   display: inline-block;

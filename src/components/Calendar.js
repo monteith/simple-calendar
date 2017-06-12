@@ -12,13 +12,14 @@ const Calendar = _cc({
   displayName: 'Calendar.Container',
 
   propTypes: {
-    date: PropTypes.object
+    date: PropTypes.object,
+    view: PropTypes.string
   },
 
   getInitialState() {
     return {
-      focus: moment(),
-      view: 'monthly'
+      focus: this.props.date || moment(),
+      view: this.props.view || 'monthly'
     }
   },
 

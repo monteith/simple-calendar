@@ -121,6 +121,7 @@
 
 .day--view-day {
   clear: both;
+  flex-flow: wrap;
   margin-top: 50px;
   padding-top: 15px;
 }
@@ -157,6 +158,17 @@
 .day__date--today {
   color: teal;
   font-weight: bold;
+}
+
+.day--view-day .day__date--today {
+  clear: both;
+  display: block;
+  flex-basis: 100%;
+  font-size: 24px;
+  font-weight: normal;
+  height: 70px;
+  padding: 0 0 0 15px;
+  text-align: left;
 }
 
 .hours {

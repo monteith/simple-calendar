@@ -1,5 +1,7 @@
 import moment from 'moment';
 
+
+
 /** Returns moment objects for first day of each week of the month.
  *  Can return moments from previous month if week start is in them.
  *  @param {string|Date|moment} month - any date in a month to create weeks for
@@ -59,6 +61,12 @@ const daysOfWeek  = (week) => {
 };
 
 
+
+/**
+ * Returns whether or not day is a weekday
+ * @param day
+ * @returns {boolean}
+ */
 const isWeekday = (day) => {
   return day.weekday() !== 0 && day.weekday() !== 6;
 };

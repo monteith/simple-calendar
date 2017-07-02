@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames/bind';
-import moment from 'moment';
 
 import {LabelBar} from './LabelBar';
 import {Week} from './Week';
@@ -12,30 +11,30 @@ import {weeksOfMonth, monthEdges} from '../dateUtils';
 
 /**
  * Month block in calendar
- * @param {moment|object} month
+ * @param {moment|object} date
  * @param {string} view
  * @returns {Component}
  * @constructor
  */
-const Month = ({month, view = 'month'}) => {
+const Month = ({date, view = 'month'}) => {
   let days =
-    monthEdges(month)
+    monthEdges(date)
       .map((day) => <Day key={`day-${day.format('DDD')}`} date={day} view={view} />);
 
   let weeks =
-    weeksOfMonth(month)
+    weeksOfMonth(date)
       .map((n,i) => {
         let week =
-          month
+          date
             .clone()
             .startOf('month')
             .add(i, 'weeks');
-        return <Week key={week.date()} week={week} view={view} />
+        return <Week key={week.date()} date={week} view={view} />
       });
 
   return (
     <div className={cx('month', `month--view-${view}`)}>
-      <h2>{moment().format('MMMM')}</h2>
+      <h2 key="month-title">{date.clone().format('MMMM')}</h2>
       <LabelBar view={view} weeks={weeks} />
       {view === 'month' && (
         <div className="month__days">
@@ -53,7 +52,7 @@ const Month = ({month, view = 'month'}) => {
 
 Month.displayName = 'Calendar.Month';
 Month.propTypes = {
-  month: PropTypes.object.isRequired,
+  date: PropTypes.object.isRequired,
   view: PropTypes.string
 };
 

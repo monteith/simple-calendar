@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames/bind';
 
-import moment from 'moment';
 import {Day} from './Day';
 import {LabelBar} from './LabelBar';
 
@@ -10,17 +9,17 @@ import {daysOfWeek} from '../dateUtils';
 
 /**
  * Week block in calendar
- * @param {moment|object} week
+ * @param {moment|object} date
  * @param {string} view
  * @returns {Component}
  * @constructor
  */
-const Week = ({week, view}) => {
+const Week = ({date, view}) => {
   let days =
-    daysOfWeek(week)
+    daysOfWeek(date)
       .map( (n, i) => {
         let day =
-          week
+          date
             .clone()
             .startOf('week')
             .add(i, 'days');
@@ -31,8 +30,8 @@ const Week = ({week, view}) => {
     <div className={cx('week', `week--view-${view}`)}>
       {view === 'week' && (
         [
-          <h2>{`${moment().startOf('week').format('MMM Do')} to ${moment().endOf('week').format('MMM Do')}`}</h2>,
-          <LabelBar view={view} weeks={[week]} />
+          <h2 key="week-title">{`${date.clone().startOf('week').format('MMM Do')} to ${date.clone().endOf('week').format('MMM Do')}`}</h2>,
+          <LabelBar key="week-labels" view={view} weeks={[date]} />
         ]
       )}
       <div className="week__days">
@@ -44,7 +43,7 @@ const Week = ({week, view}) => {
 
 Week.displayName = 'Calendar.Week';
 Week.propTypes = {
-  week: PropTypes.object.isRequired
+  date: PropTypes.object.isRequired
 };
 
 export {Week}

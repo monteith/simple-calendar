@@ -1,10 +1,30 @@
+/* ============================================================================
+
+   TABLE OF CONTENTS
+
+    GENERAL/LAYOUT
+    HEADER
+    LABELS
+    MONTH
+    WEEK
+    DAY
+    HOURS
+
+   ========================================================================= */
+
+
+/* GENERAL/LAYOUT
+   ========================================================================= */
+
 .sprintHero { font-family: 'Open Sans', sans-serif; }
 
 .sprintHero h2 { color: black; }
 
 .calendar { padding: 30px 15px; }
 
-.viewbar { float: right; }
+
+/* HEADER
+   ========================================================================= */
 
 .sprintHero header {
   display: flex;
@@ -13,17 +33,20 @@
   align-items: center;
 }
 
-.day__header {
-  margin: 0 25px 25px 25px
-}
+.day__header { margin: 0 25px 25px 25px }
 
 header h2 {
   display: inline-block;
   margin-right: 15px;
 }
 
-.labels,
-.month { clear: both; }
+
+/* LABELS
+   ========================================================================= */
+
+.viewbar { float: right; }
+
+.labels { clear: both; }
 
 .labels--view-month {
   display: flex;
@@ -91,7 +114,15 @@ header h2 {
   transform: translateY(-50%);
 }
 
-.month { display: flex; }
+
+
+/* MONTH
+   ========================================================================= */
+
+.month {
+  clear: both;
+  display: flex;
+}
 
 .month--view-month { flex-direction: column; }
 
@@ -104,6 +135,11 @@ header h2 {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+
+
+/* WEEK
+   ========================================================================= */
 
 .week {
   padding-bottom: 15px;
@@ -124,6 +160,11 @@ header h2 {
   flex-direction: column;
   justify-content: center;
 }
+
+
+
+/* DAY
+   ========================================================================= */
 
 .day {
   align-items: center;
@@ -178,6 +219,11 @@ header h2 {
   font-weight: bold;
 }
 
+
+
+/* HOURS
+   ========================================================================= */
+
 .hours {
   display: flex;
   flex: 1 0 auto;
@@ -191,4 +237,5 @@ header h2 {
   min-height: 50px;
   padding: 5px;
 }
+
 .hours__hour:first-child:first-child { border-top: 1px solid #efefef; }

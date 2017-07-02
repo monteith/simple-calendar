@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import cx from 'classnames/bind';
 
 import {Day} from './Day';
+import {LabelBar} from './LabelBar';
 
 import {daysOfWeek} from '../dateUtils';
 
 /**
  * Week block in calendar
  * @param {moment|object} week
+ * @param {string} view
  * @returns {Component}
  * @constructor
  */
@@ -26,6 +28,9 @@ const Week = ({week, view}) => {
 
   return (
     <div className={cx('week', `week--view-${view}`)}>
+      {view === 'week' && (
+        <LabelBar view={view} weeks={[week]} />
+      )}
       <div className="week__days">
         {days}
       </div>

@@ -3,9 +3,10 @@ import moment from 'moment';
 import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 
+import {ViewBar} from './ViewBar';
 import {Month} from './Month';
 import {Day} from './Day';
-import {ViewBar} from './ViewBar';
+import {Week} from './Week';
 
 const _cc = createReactClass;
 
@@ -37,6 +38,10 @@ const Calendar = _cc({
         {view === 'month' && (
           <Month month={focus}
                  view={view} />
+        )}
+        {view === 'week' && (
+          <Week week={focus}
+                view={view} />
         )}
         {view === 'day' && (
           <Day date={focus} view={view} />

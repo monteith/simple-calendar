@@ -92,7 +92,12 @@
   padding-top: 15px;
 }
 
-.week--view-wee { border-bottom: 1px solid #efefef; }
+.week--view-week {
+  clear: both;
+  display: flex;
+}
+
+.week--view-month + .week--view-month { border-top: 1px solid #efefef; }
 
 .week__days {
   display: flex;
@@ -167,5 +172,4 @@
   min-height: 50px;
   padding: 5px;
 }
-
 .hours__hour:first-child:first-child { border-top: 1px solid #efefef; }

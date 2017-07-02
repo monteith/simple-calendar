@@ -29,7 +29,7 @@ const Day = ({date, view = 'day'}) => {
 
   return (
     <div className={cx(dayClasses)}>
-      {view === 'month' && (
+      {view !== 'day' && (
         <span className={`day__date ${date.format('DDD') === moment().format('DDD')
           ? 'day__date--today'
           : ''}`}>{date.date()}</span>

@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import cx from 'classnames/bind';
 
 import {isWeekday} from '../dateUtils';
+import {hoursOfDay} from '../timeUtils';
 
+import {LabelBar} from './LabelBar';
 
 /**
  * Day block in calendar
@@ -20,11 +22,21 @@ const Day = ({date, view = 'day'}) => {
     `day--view-${view}`
   ];
 
+  let hours =
+      <div key='hours' className="hours">
+        {hoursOfDay().map(hour => <div className="hours__hour" key={`hour-${hour.format('H')}`} />)}
+      </div>;
+
+      console.log('hours', hoursOfDay().length);
+
   return (
     <div className={cx(dayClasses)}>
-      <span className={`day__date ${date.format('DDD') === moment().format('DDD')
-        ? 'day__date--today'
-        : ''}`}>{date.date()}</span>
+      {view === 'month' && (
+        <span className={`day__date ${date.format('DDD') === moment().format('DDD')
+          ? 'day__date--today'
+          : ''}`}>{date.date()}</span>
+      )}
+      {view === 'day' && [<LabelBar key={'labelbar'} view={view} />, hours]}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import createReactClass from 'create-react-class';
 import PropTypes from 'prop-types';
 
 import {Month} from './Month';
+import {Day} from './Day';
 import {ViewBar} from './ViewBar';
 
 const _cc = createReactClass;
@@ -28,11 +29,18 @@ const Calendar = _cc({
   },
 
   render() {
+    let {view, focus} = this.state;
+
     return (
       <div className="calendar">
-        <ViewBar view={this.state.view} setView={this.setView} />
-        <Month month={this.state.focus}
-               view={this.state.view} />
+        <ViewBar view={view} setView={this.setView} />
+        {view === 'month' && (
+          <Month month={focus}
+                 view={view} />
+        )}
+        {view === 'day' && (
+          <Day date={focus} view={view} />
+        )}
       </div>
     )
   }

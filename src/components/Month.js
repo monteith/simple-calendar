@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames/bind';
+import moment from 'moment';
 
 import {LabelBar} from './LabelBar';
 import {Week} from './Week';
@@ -34,6 +35,7 @@ const Month = ({month, view = 'month'}) => {
 
   return (
     <div className={cx('month', `month--view-${view}`)}>
+      <h2>{moment().format('MMMM')}</h2>
       <LabelBar view={view} weeks={weeks} />
       {view === 'month' && (
         <div className="month__days">

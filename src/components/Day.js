@@ -27,13 +27,16 @@ const Day = ({date, view = 'day'}) => {
         {hoursOfDay().map(hour => <div className="hours__hour" key={`hour-${hour.format('H')}`} />)}
       </div>;
 
-  let displayDate = view === 'day' ? date.format('MMMM Do') : date.date();
-
   return (
     <div className={cx(dayClasses)}>
+      {view === 'day' && (
+        <h2>{date.format('MMMM Do')}</h2>
+      )}
+      {view !== 'day' && (
         <span className={`day__date ${date.format('DDD') === moment().format('DDD')
           ? 'day__date--today'
-          : ''}`}>{displayDate}</span>
+          : ''}`}>{date.date()}</span>
+      )}
       {view === 'day' && [<LabelBar key={'labelbar'} view={view} />, hours]}
     </div>
   );

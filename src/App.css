@@ -1,5 +1,7 @@
 .sprintHero { font-family: 'Open Sans', sans-serif; }
 
+.sprintHero h2 { color: black; }
+
 .calendar { padding: 30px 15px; }
 
 .viewbar { float: right; }
@@ -95,6 +97,11 @@
 .week--view-week {
   clear: both;
   display: flex;
+  flex-flow: wrap;
+}
+
+.week--view-week h2 {
+  flex-basis: 100%;
 }
 
 .week--view-month + .week--view-month { border-top: 1px solid #efefef; }
@@ -160,15 +167,11 @@
   font-weight: bold;
 }
 
-.day--view-day .day__date--today {
-  clear: both;
-  display: block;
+.day--view-day h2 {
   flex-basis: 100%;
   font-size: 24px;
-  font-weight: normal;
-  height: 70px;
-  padding: 0 0 0 15px;
-  text-align: left;
+  height: 50px;
+  padding: 0 15px 15px;
 }
 
 .hours {

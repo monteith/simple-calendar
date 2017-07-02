@@ -27,8 +27,6 @@ const Day = ({date, view = 'day'}) => {
         {hoursOfDay().map(hour => <div className="hours__hour" key={`hour-${hour.format('H')}`} />)}
       </div>;
 
-      console.log('hours', hoursOfDay().length);
-
   return (
     <div className={cx(dayClasses)}>
       {view === 'month' && (

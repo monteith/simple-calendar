@@ -21,7 +21,7 @@ const Week = ({week, view}) => {
             .clone()
             .startOf('week')
             .add(i, 'days');
-        return <Day key={day.date()} date={day} view="weekly" />
+        return <Day key={day.date()} date={day} view="week" />
       });
 
   return (

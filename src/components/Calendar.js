@@ -19,7 +19,7 @@ const Calendar = _cc({
   getInitialState() {
     return {
       focus: this.props.date || moment(),
-      view: this.props.view || 'monthly'
+      view: this.props.view || 'month'
     }
   },
 

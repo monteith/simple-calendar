@@ -16,7 +16,7 @@ import {weeksOfMonth, monthEdges} from '../dateUtils';
  * @returns {Component}
  * @constructor
  */
-const Month = ({month, view = 'monthly'}) => {
+const Month = ({month, view = 'month'}) => {
   let days =
     monthEdges(month)
       .map((day) => <Day key={`day-${day.format('DDD')}`} date={day} view={view} />);
@@ -35,12 +35,12 @@ const Month = ({month, view = 'monthly'}) => {
   return (
     <div className={cx('month', `month--view-${view}`)}>
       <LabelBar view={view} weeks={weeks} />
-      {view === 'monthly' && (
+      {view === 'month' && (
         <div className="month__days">
           {days}
         </div>
       )}
-      {view === 'weekly' && (
+      {view === 'week' && (
         <div className="month__weeks">
           {weeks}
         </div>

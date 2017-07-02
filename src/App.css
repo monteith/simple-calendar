@@ -11,7 +11,7 @@
 .labels,
 .month { clear: both; }
 
-.labels--view-monthly {
+.labels--view-month {
   display: flex;
   flex: 1 0 auto;
   justify-content: center;
@@ -39,7 +39,7 @@
 .labels__label:first-child { margin-left: 0; }
 .labels__label:last-child { margin-right: 0; }
 
-.labels--view-weekly .labels__label--day {
+.labels--view-week .labels__label--day {
   align-items: center;
   display: flex;
   min-height: 50px;
@@ -48,7 +48,7 @@
 }
 
 .month { display: flex; }
-.month--view-monthly { flex-direction: column; }
+.month--view-month { flex-direction: column; }
 
 .month__weeks { flex-grow: 1; }
 
@@ -65,7 +65,7 @@
   padding-top: 15px;
 }
 
-.week--view-weekly {
+.week--view-wee {
   border-bottom: 1px solid #efefef;
 }
 
@@ -97,16 +97,16 @@
 
 .day--weekend {  background: #efefef;  }
 
-.day--view-monthly {
+.day--view-month {
   align-items: flex-start;
   min-height: 100px;
 }
 
-.day--view-monthly:first-child { margin-left: 0; }
-.day--view-monthly:nth-child(7n + 7) { margin-right: 0; }
-.day--view-monthly:nth-child(7n + 8) { margin-left: 0; }
+.day--view-month:first-child { margin-left: 0; }
+.day--view-month:nth-child(7n + 7) { margin-right: 0; }
+.day--view-month:nth-child(7n + 8) { margin-left: 0; }
 
-.day--view-weekly { width: 100%; }
+.day--view-week { width: 100%; }
 
 .day__date {
   display: inline-block;

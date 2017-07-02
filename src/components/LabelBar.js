@@ -16,16 +16,16 @@ const LabelBar = ({view, weeks}) => {
   let el = <div />;
 
   switch (view) {
-    case 'monthly':
+    case 'month':
       el = (
-        <div className="labels labels--view-monthly">
+        <div className="labels labels--view-month">
           {labels}
         </div>
       );
       break;
-    case 'weekly':
+    case 'week':
       el = (
-        <div className="labels labels--view-weekly">
+        <div className="labels labels--view-week">
           {weeks.map( (n, i) => (
             <div className="labels__group" key={`week-label-${i}`}>
               {labels}

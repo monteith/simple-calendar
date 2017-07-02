@@ -8,14 +8,14 @@ const ViewBar = ({setView}) => (
   <div className="viewbar">
     <ButtonToolbar>
       <DropdownButton pullRight={true} title={<i className="fa fa-television" />} id="viewbar">
-        <LinkContainer to="/view/daily">
-          <MenuItem eventKey="viewbar.daily" onClick={() => setView('daily')}>Daily</MenuItem>
+        <LinkContainer to="/view/day">
+          <MenuItem eventKey="viewbar.day" onClick={() => setView('day')}>Day</MenuItem>
         </LinkContainer>
-        <LinkContainer to="/view/weekly">
-          <MenuItem eventKey="viewbar.weekly" onClick={() => setView('weekly')}>Weekly</MenuItem>
+        <LinkContainer to="/view/week">
+          <MenuItem eventKey="viewbar.week" onClick={() => setView('week')}>Week</MenuItem>
         </LinkContainer>
-        <LinkContainer to="/view/monthly">
-          <MenuItem eventKey="viewbar.monthly" onClick={() => setView('monthly')}>Monthly</MenuItem>
+        <LinkContainer to="/view/month">
+          <MenuItem eventKey="viewbar.month" onClick={() => setView('month')}>Month</MenuItem>
         </LinkContainer>
       </DropdownButton>
     </ButtonToolbar>

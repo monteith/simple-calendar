@@ -43,6 +43,7 @@ const Calendar = _cc({
 
     return (
       <div className="calendar">
+        <h1>{focus.format('YYYY')}</h1>
         <ViewBar view={view} date={focus} setView={this.setView} />
         {view === 'month' && (
           <Month date={focus}

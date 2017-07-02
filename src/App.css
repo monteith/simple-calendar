@@ -18,6 +18,10 @@
 
 .sprintHero { font-family: 'Open Sans', sans-serif; }
 
+.sprintHero h1 {
+  float: left;
+  margin-top: 0;
+}
 .sprintHero h2 { color: black; }
 
 .calendar { padding: 30px 15px; }

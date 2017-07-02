@@ -25,12 +25,13 @@ const Week = ({date, view}) => {
             .clone()
             .startOf('week')
             .add(i, 'days');
-        return <Day key={day.date()} date={day} view="week" />
+        return <Day key={day.date()}
+                    date={day} view="week"
+                    onClick={() => window.location.href = `/view/day/${constructDateURL(day)}`} />
       });
 
   return (
-    <div className={cx('week', `week--view-${view}`)}
-         onClick={() => window.location.href = `/view/day/${constructDateURL(date)}`}>
+    <div className={cx('week', `week--view-${view}`)}>
       {view === 'week' && (
         [
           <h2 key="week-title">{`${date.clone().startOf('week').format('MMM Do')} to ${date.clone().endOf('week').format('MMM Do')}`}</h2>,

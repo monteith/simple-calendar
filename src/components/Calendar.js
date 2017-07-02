@@ -30,6 +30,10 @@ const Calendar = _cc({
     view: 'month'
   },
 
+  setFocus (focus) {
+    this.setState( () => { return { focus } })
+  },
+
   setView (view) {
     this.setState( () => { return { view }});
   },
@@ -42,15 +46,18 @@ const Calendar = _cc({
         <ViewBar view={view} date={focus} setView={this.setView} />
         {view === 'month' && (
           <Month date={focus}
-                 view={view} />
+                 view={view}
+                 setFocus={this.setFocus} />
         )}
         {view === 'week' && (
           <Week date={focus}
-                view={view} />
+                view={view}
+                setFocus={this.setFocus} />
         )}
         {view === 'day' && (
           <Day date={focus}
-               view={view}/>
+               view={view}
+               setFocus={this.setFocus} />
         )}
       </div>
     )

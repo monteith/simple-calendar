@@ -4,19 +4,22 @@ import cx from 'classnames/bind';
 
 import {constructDateURL} from '../dateUtils';
 
+import {Toolbar} from './Toolbar';
 import {Day} from './Day';
 import {LabelBar} from './LabelBar';
 
 import {daysOfWeek} from '../dateUtils';
 
+
 /**
  * Week block in calendar
  * @param {moment|object} date
+ * @param {function} setFocus
  * @param {string} view
  * @returns {Component}
  * @constructor
  */
-const Week = ({date, view}) => {
+const Week = ({date, view = 'week', setFocus}) => {
   let days =
     daysOfWeek(date)
       .map( (n, i) => {
@@ -27,6 +30,7 @@ const Week = ({date, view}) => {
             .add(i, 'days');
         return <Day key={day.date()}
                     date={day} view="week"
+                    setFocus={setFocus}
                     onClick={() => window.location.href = `/view/day/${constructDateURL(day)}`} />
       });
 
@@ -34,7 +38,10 @@ const Week = ({date, view}) => {
     <div className={cx('week', `week--view-${view}`)}>
       {view === 'week' && (
         [
-          <h2 key="week-title">{`${date.clone().startOf('week').format('MMM Do')} to ${date.clone().endOf('week').format('MMM Do')}`}</h2>,
+          <Toolbar date={date}
+                   view={view} key="week-header"
+                   prev={() => setFocus(date.clone().subtract(1, 'week')) }
+                   next={() => setFocus(date.clone().add(1, 'week'))} />,
           <LabelBar key="week-labels" view={view} weeks={[date]} />
         ]
       )}
@@ -47,7 +54,9 @@ const Week = ({date, view}) => {
 
 Week.displayName = 'Calendar.Week';
 Week.propTypes = {
-  date: PropTypes.object.isRequired
+  date: PropTypes.object.isRequired,
+  setFocus: PropTypes.func.isRequired,
+  view: PropTypes.string
 };
 
 export {Week}

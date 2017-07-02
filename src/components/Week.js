@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames/bind';
 
+import {constructDateURL} from '../dateUtils';
+
 import {Day} from './Day';
 import {LabelBar} from './LabelBar';
 
@@ -27,7 +29,8 @@ const Week = ({date, view}) => {
       });
 
   return (
-    <div className={cx('week', `week--view-${view}`)}>
+    <div className={cx('week', `week--view-${view}`)}
+         onClick={() => window.location.href = `/view/day/${constructDateURL(date)}`}>
       {view === 'week' && (
         [
           <h2 key="week-title">{`${date.clone().startOf('week').format('MMM Do')} to ${date.clone().endOf('week').format('MMM Do')}`}</h2>,

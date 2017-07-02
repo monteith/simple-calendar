@@ -15,7 +15,7 @@ import {LabelBar} from './LabelBar';
  * @returns {Component}
  * @constructor
  */
-const Day = ({date, view = 'day'}) => {
+const Day = ({date, view = 'day', ...rest}) => {
   let dayClasses = [
     'day',
     {'day--weekend' : !isWeekday(date)},
@@ -28,7 +28,7 @@ const Day = ({date, view = 'day'}) => {
       </div>;
 
   return (
-    <div className={cx(dayClasses)}>
+    <div className={cx(dayClasses)} {...rest}>
       {view === 'day' && (
         <h2>{date.format('MMMM Do')}</h2>
       )}

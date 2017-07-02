@@ -6,7 +6,7 @@ import {LabelBar} from './LabelBar';
 import {Week} from './Week';
 import {Day} from './Day';
 
-import {weeksOfMonth, monthEdges} from '../dateUtils';
+import {weeksOfMonth, monthEdges, constructDateURL} from '../dateUtils';
 
 
 /**
@@ -33,7 +33,8 @@ const Month = ({date, view = 'month'}) => {
       });
 
   return (
-    <div className={cx('month', `month--view-${view}`)}>
+    <div className={cx('month', `month--view-${view}`)}
+         onClick={() => window.location.href = `/view/day/${constructDateURL(date)}`}>
       <h2 key="month-title">{date.clone().format('MMMM')}</h2>
       <LabelBar view={view} weeks={weeks} />
       {view === 'month' && (

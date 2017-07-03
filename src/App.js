@@ -16,9 +16,9 @@ import './App.css';
 import {Calendar} from './components/Calendar';
 
 const _cc = createReactClass;
-
 let customHistory = createBrowserHistory();
 
+window.moment = moment;
 
 /**
  * 404 component

@@ -71,6 +71,12 @@ const isWeekday = (day) => {
   return day.weekday() !== 0 && day.weekday() !== 6;
 };
 
+
+
+/**
+ * Build URL `YYYY/MM/DD`
+ * @param {Date|moment} date
+ */
 const constructDateURL = (date) => `${date.format('YYYY')}/${date.format('MM')}/${date.format('DD')}`;
 
 export {weeksOfMonth, monthEdges, daysOfWeek, isWeekday, constructDateURL}

@@ -10,6 +10,8 @@ import {Toolbar} from './Toolbar';
 import {LabelBar} from './LabelBar';
 
 
+const isToday = (d) => d.startOf('day').format() === moment().startOf('day').format();
+
 /**
  * Day block in calendar
  * @param {moment|object} date
@@ -39,7 +41,7 @@ const Day = ({date, view = 'day', setFocus, ...rest}) => {
                  next={() => setFocus(date.clone().add(1, 'day'))} />
       )}
       {view !== 'day' && (
-        <span className={`day__date ${date.format('DDD') === moment().format('DDD')
+        <span className={`day__date ${isToday(date)
           ? 'day__date--today'
           : ''}`}>{date.date()}</span>
       )}
